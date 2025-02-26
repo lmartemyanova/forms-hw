@@ -8,7 +8,7 @@ export const app = () => {document.addEventListener('DOMContentLoaded', () => {
     popover.createPopover();
     
     form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Отключаем стандартное поведение формы
+        event.preventDefault(); 
 
         if (popover._popover && !popover._popover.classList.contains('hidden')) {
             popover.hidePopover();

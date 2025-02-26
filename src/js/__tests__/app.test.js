@@ -6,10 +6,6 @@ describe('App Module', () => {
     let button;
     let popoverInstance;
 
-    beforeAll(() => {
-        app;
-    })
-
     beforeEach(() => {
         document.body.innerHTML = `
           <form class="popover-form" novalidate>
@@ -22,6 +18,7 @@ describe('App Module', () => {
         button = document.querySelector('.popover-button');
         popoverInstance = new Popover(button);
         popoverInstance.createPopover();
+        app;
     });
 
     afterEach(() => {
@@ -31,20 +28,20 @@ describe('App Module', () => {
     });
 
     test('popover создается при инициализации', () => {
-        expect(document.querySelector('.popover')).not.toBeNull();
+        expect(document.querySelector('.popover')).not.toBeNull(); // - тест проходит, popover создается
     });
 
     test('popover должен появляться при отправке формы', () => {
         form.dispatchEvent(new Event('submit', {cancelable: true}));
         const popoverElem = document.querySelector('.popover');
-        expect(popoverElem.classList.contains('hidden')).toBe(false);
+        expect(popoverElem.classList.contains('hidden')).toBe(false); // - тест падает (true)
     });
 
     test('popover должен скрываться при повторной отправке формы', () => {
-        form.dispatchEvent(new Event('submit', {cancelable: true})); // Показываем popover
+        form.dispatchEvent(new Event('submit', {cancelable: true})); // Показываем popover 
         const popoverElem = document.querySelector('.popover');
-        expect(popoverElem.classList.contains('hidden')).toBe(false);
-        form.dispatchEvent(new Event('submit', {cancelable: true})); // Повторно отправляем форму (скрываем popover)
-        expect(popoverElem.classList.contains('hidden')).toBe(true);
+        expect(popoverElem.classList.contains('hidden')).toBe(false); // - тест падает (true)
+        form.dispatchEvent(new Event('submit', {cancelable: true})); // Повторно отправляем форму (скрываем popover) 
+        expect(popoverElem.classList.contains('hidden')).toBe(true); // - тест проходит (true)
     });
 });

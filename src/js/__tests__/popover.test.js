@@ -55,7 +55,7 @@ describe('Popover', () => {
         const top = parseFloat(popover.style.top);
         const left = parseFloat(popover.style.left);
 
-        expect(top).toBeLessThan(100); // popover должен быть выше кнопки
-        expect(left).toBeGreaterThan(50); // центрируем popover по кнопке
+        expect(top).toBeLessThan(100);
+        expect(left).toBeGreaterThan(50); 
     });
 });
