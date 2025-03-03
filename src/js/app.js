@@ -1,6 +1,6 @@
 import Popover from './popover'
 
-export const app = () => {document.addEventListener('DOMContentLoaded', () => {
+export const app = () => {
     const form = document.querySelector('.popover-form');
     const button = document.querySelector('.popover-button');
 
@@ -16,5 +16,4 @@ export const app = () => {document.addEventListener('DOMContentLoaded', () => {
             popover.showPopover();
         }
     });
-  })
 };
